@@ -1,0 +1,92 @@
+Input : 
+Number of People : 10000
+Current Year : 1985
+
+Output :
+Creating this many people : 10000
+
+Method 1 : Non-Optimized
+Total number of people alive : 4632
+Year : 1948     People Alive : 208
+Operation took : 27020000 nanoseconds
+
+Method 2 : Optimized
+Total number of people alive : 4632
+Year : 1948     People Alive : 208
+Operation took : 2001800 nanoseconds
+
+From : 10000 people, assuming the current year is : 1985
+
+The born year with maximum number of people alive is : 1948
+
+
+
+
+Input : 
+Number of People : 100000
+Current Year : 1985
+
+Output :
+Creating this many people : 100000
+
+Method 1 : Non-Optimized
+Total number of people alive : 46967
+Year : 1949     People Alive : 2087
+Operation took : 1582074500 nanoseconds
+
+Method 2 : Optimized
+Total number of people alive : 46967
+Year : 1949     People Alive : 2087
+Operation took : 881599200 nanoseconds
+
+From : 100000 people, assuming the current year is : 1985
+
+The born year with maximum number of people alive is : 1949
+
+
+
+
+Input : 
+Number of People : 10000
+Current Year : 2015
+
+Output :
+Creating this many people : 10000
+
+Method 1 : Non-Optimized
+Total number of people alive : 4708
+Year : 1941     People Alive : 234
+Operation took : 27018300 nanoseconds
+
+Method 2 : Optimized
+Total number of people alive : 4708
+Year : 1941     People Alive : 234
+Operation took : 3002100 nanoseconds
+
+From : 10000 people, assuming the current year is : 2015
+
+The born year with maximum number of people alive is : 1941
+
+
+
+
+Input : 
+Number of People : 1000000
+Current Year : 2015
+
+Output :
+Creating this many people : 1000000
+
+Method 1 : Non-Optimized
+Total number of people alive : 470263
+Year : 1944     People Alive : 20331
+Operation took : 194815590300 nanoseconds
+
+Method 2 : Optimized
+Total number of people alive : 470263
+Year : 1944     People Alive : 20331
+Operation took : 158206749200 nanoseconds
+
+From : 1000000 people, assuming the current year is : 2015
+
+The born year with maximum number of people alive is : 1944

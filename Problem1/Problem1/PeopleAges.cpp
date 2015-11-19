@@ -20,14 +20,14 @@ private:
 public:
 	Person(string name,int born,int dead) :name(name),born(born),dead(dead){
 		if(dead>2000)
-			this->dead = -1;
+			this->dead = NULL;
 	}
 	~Person(){
 	}
 
 	// A person is alive if the dead year is NULL or dead year > current year
 	bool isAlive(int currentYear){
-		if(this->dead != -1 && this->dead <= currentYear){
+		if(this->dead != NULL && this->dead <= currentYear){
 			return false;
 		}
 		else
@@ -46,7 +46,7 @@ public:
 };
 
 // generate a random year given a base 
-// year generated is dependent on range (assuming its 30 for born year)
+// year generated is dependent on range 
 int getRandomYear(int base, int minrange, int maxrange){
 	return base + minrange + rand()%(maxrange -minrange);
 }
@@ -65,12 +65,11 @@ string getRandomString(int size){
 // fill in the data set with random names, born {1900,2000}, dead {1900,2000} 
 void createPeopleDataSet(vector<Person>& peopleSet, int setSize){
 
-	cout<<"Creating persons : "<<endl;
 	Person *newPerson;
 	int born=1900,dead=2000;
 	string name;
 	int minrange = 0, maxrange=50; //range to generate random years i.e (1900 + range)
-	int minagerange = 60,maxagerange = 90;
+	int minagerange = 60,maxagerange = 90; // range to generate random age of people (born year + age)
 	// create a seed to generate random string size for first and last names and random born and dead years
 	srand(time(NULL));
 
@@ -217,17 +216,20 @@ int main(int argc, char *argv[]){
 		currentYear = atoi(argv[2]);
 	}
 	
+	cout<<endl<< "Creating this many people : " << numberofPeople << endl;
 	//create a data set of the "numberOfPeople" size
 	createPeopleDataSet(listOfPeople,numberofPeople);
 	
 	//print the current status of all people in the dataset
-	listStatusOfPeople(listOfPeople,2000);
+	//listStatusOfPeople(listOfPeople, currentYear);
 
 	//find and print the year with maximum people alive
 	int birthYear = findBirthYearWithMaxAlive(listOfPeople,2000);
 
-	if(birthYear != -1)
-		cout<<endl<<"The born year with maximum number of people alive is : "<<birthYear<<endl;
+	if (birthYear != -1){
+		cout << endl << "From : " << numberofPeople << " people, assuming the current year is : " << currentYear << endl;
+		cout << endl << "The born year with maximum number of people alive is : " << birthYear << endl;
+	}
 	else
 		cout<<endl<<"So...I cannot find the born year with maximum number of people alive"<<endl;
 
