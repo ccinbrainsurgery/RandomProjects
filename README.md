@@ -9,12 +9,12 @@ So I am making the following Assumptions :
   - Name of a person is randomly generated.
   - Born year is randomly generated to be between (1900 and 1950).
   - Dead year is randomly generated with born year + a randomly generated age (between 60 and 90).
-  - If 'Dead' year exceeeds 2000 I am assigning it 'NULL' and assuming the person is alive regardless of the current year. 
+  - If 'Dead' year exceeds 2000 I am assigning it 'NULL' and assuming the person is alive regardless of the current year. 
 
 - Current year is given as input to complete the defintion of a 'Person being alive'
   - Current definition is if(dead year is NULL or dead year > current year)
-  
-- The branch that outputs 'No one is alive' never gets called, after I updated my definitions of 'Person being alive', but I have tested it using previous definition.
+  - Previous definition was just (if dead year > current year), the dataset could have ages > 2000 though.
+- The branch that outputs 'No one is alive' never gets called, after I updated my definitions of 'Person being alive', but I have tested it using previous definition. I have left it in there just for demonstration.
 
 Notes :
 - There are two versions of the main algorithm : one non-optimized and one optimized.
