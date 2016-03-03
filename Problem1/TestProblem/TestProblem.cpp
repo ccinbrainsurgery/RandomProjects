@@ -20,6 +20,7 @@
 #include <algorithm>
 #include <conio.h>
 #include <regex>
+#include "Number.h"
 using namespace std;
 
 template <typename T1, typename T2>
@@ -270,7 +271,7 @@ string IntToString(int num){
 
 	bool isNeg = false;
 	string ret;
-	if (num < 0){
+	/*if (num < 0){
 		num *= -1;
 		isNeg = true;
 	}
@@ -283,7 +284,24 @@ string IntToString(int num){
 
 	reverse(ret.begin(), ret.end());
 
+	return ret;*/
+	if (num <10){
+		ret += "0";
+		ret += '0' + num;
+		return ret;
+	}
+
+	else{
+		do{
+			ret += '0' + num % 10;
+			num /= 10;
+		} while (num);
+
+		reverse(ret.begin(), ret.end());
+	}
+
 	return ret;
+
 }
 
 
@@ -298,6 +316,84 @@ int StringToInt(string num){
 	}
 
 	return (isNeg) ? -result : result;
+}
+
+string clockConversion(string time){
+	
+	string hour = time.substr(0, 2);
+
+	int hrint = strtol(hour.c_str(), NULL, 10);
+
+	if ((time.find("PM") != std::string::npos) && hrint < 12){
+		hrint += 12;
+	}
+	else if (hrint == 12 && (time.find("AM") != std::string::npos)){
+		hrint = 0;
+	}
+
+	string hourreplace = IntToString(hrint);
+
+	time.replace(time.begin(), time.begin() + 2, hourreplace);
+	time.erase(time.end() - 2, time.end());
+	return time;
+}
+
+int sherlock(int n){
+	int no5 = 0, no3 = 0;
+
+	cout << "For n : " << n << " ";
+
+	if (n<3){
+		cout << -1 << endl;
+		return 0;
+	}
+
+	if (n % 3 == 0){
+		while (n>0){
+			cout << 555;
+			n-=5;
+		}
+		cout << endl;
+		return 0;
+	}
+
+	no5 = (n / 3);
+	no5 *= 3;
+
+	n = n - no5;
+
+	if (n == 2){
+		no5-=3;
+		no3+=5;
+	}
+	else if (n == 1){
+		no5 -= 9;
+		if (no5 < 0){
+			cout << -1 << endl;
+			return 0;
+		}
+		no3 += 10;
+	}
+
+	if (no5 / 3 > 0 || no3 / 5 > 0){
+		if (no5 % 3 == 0 && no3 % 5 == 0){
+			while (no5>0){
+				cout << 555;
+				no5-=3;
+			}
+			while (no3>0){
+				cout << 33333;
+				no3-=5;
+			}
+		}
+		else
+			cout << -1;
+	}
+	else
+		cout << -1;
+
+	cout << endl;
+	return 0;
 }
 
 int binarySearch(vector<int> numbers, int key){
@@ -708,9 +804,6 @@ int frenemy(const char rel[5][6], int x, int y, string relString){
 		visited.clear(); //clear the visited map ..makes cyclic relations possible
 	}	
 
-		
-	
-
 	// check if the destination node is in the queue
 	while (!nodesToVisit.empty())
 	{
@@ -722,6 +815,8 @@ int frenemy(const char rel[5][6], int x, int y, string relString){
 
 	return 0;
 }
+
+
 
 
 int main(int argc, char *argv[]){
@@ -781,12 +876,18 @@ int main(int argc, char *argv[]){
 //	//cout << IntToString(-341);
 //	//cout << StringToInt("-341");
 
+	//cout << clockConversion("06:40:03AM");
 
-
-	const char matrix[5][6] = { "-EFEF",
+	/*for (int i = 1; i < 101;i++)
+		sherlock(i);
+		*/
+	/*const char matrix[5][6] = { "-EFEF",
 "E-FF-", "FF-EF", "EFE-F" ,"F-FF-"};
 
-	cout << frenemy(matrix, 0, 4, "FFEEE");
+	cout << frenemy(matrix, 0, 4, "FFEEE");*/
+
+
+	test_Number();
 
 	_getch();
 	return 0;
